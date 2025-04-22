@@ -13,7 +13,8 @@ import pandas as pd
 
 
 class Diagram:
-    lang_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/BarChartDemo/refs/heads/main/programming_lang_responses.csv'
+    lang_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/programming_lang_responses.csvv'
+    age_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/programming_lang_responses.csvv'
 
     @staticmethod
     def dynamic_most_popular_programming_lang(top: int = 15):
@@ -35,7 +36,7 @@ class Diagram:
 
     @staticmethod
     def hist_demo(is_random_age=False):
-        age_df = pd.read_csv('ages_responses.csv')
+        age_df = pd.read_csv('age_responses.csv')
         ages = age_df['Age'] if not is_random_age else np.random.randint(low=99, size=len(age_df.index))
         bins = np.arange(start=10, stop=100 + 1, step=10)
         plt.hist(ages, bins=bins, edgecolor='black', log=True)
