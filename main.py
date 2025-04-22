@@ -1,8 +1,4 @@
-from matplotlib import pyplot
-
 from diagram import Diagram
-
-
 def main():
     hist = Diagram.hist_demo
     popular_lang = Diagram.most_popular_programming_lang
