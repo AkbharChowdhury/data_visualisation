@@ -4,6 +4,7 @@ import statistics
 import numpy as np
 from matplotlib import pyplot
 from matplotlib import pyplot as plt
+
 ssl._create_default_https_context = ssl._create_stdlib_context
 plt.style.use("fivethirtyeight")
 from collections import Counter
@@ -13,8 +14,9 @@ import pandas as pd
 
 
 class Diagram:
-    lang_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/programming_lang_responses.csvv'
-    age_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/programming_lang_responses.csvv'
+    plt.style.use("fivethirtyeight")
+    lang_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/programming_lang_responses.csv'
+    age_responses_url: str = 'https://raw.githubusercontent.com/AkbharChowdhury/data_visualisation/refs/heads/main/age_responses.csv'
 
     @staticmethod
     def dynamic_most_popular_programming_lang(top: int = 15):
@@ -36,7 +38,7 @@ class Diagram:
 
     @staticmethod
     def hist_demo(is_random_age=False):
-        age_df = pd.read_csv('age_responses.csv')
+        age_df = pd.read_csv(Diagram.age_responses_url)
         ages = age_df['Age'] if not is_random_age else np.random.randint(low=99, size=len(age_df.index))
         bins = np.arange(start=10, stop=100 + 1, step=10)
         plt.hist(ages, bins=bins, edgecolor='black', log=True)
@@ -52,7 +54,6 @@ class Diagram:
 
     @staticmethod
     def most_popular_programming_lang(top: int = 15):
-        plt.style.use("fivethirtyeight")
         data = pd.read_csv(Diagram.lang_responses_url)
         languages = data['LanguagesWorkedWith']
         language_counter = Counter(list(chain.from_iterable([language.split(';') for language in languages])))
@@ -67,8 +68,7 @@ class Diagram:
 
     @staticmethod
     def free_time():
-        plt.style.use('fivethirtyeight')
-        hobbies = {
+        hobbies: dict[str, int] = {
             'coding': 46,
             'exercising': 54,
             'shopping': 30,
@@ -88,9 +88,8 @@ class Diagram:
         return plt
 
     @staticmethod
-    def run(diagram: pyplot):
+    def show(diagram: pyplot):
         diagram.show()
-
 
 # hist = Diagram.hist_demo()
 # popular_programming_languages = Diagram.most_popular_programming_lang(top=15)
