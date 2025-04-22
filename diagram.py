@@ -90,10 +90,3 @@ class Diagram:
     @staticmethod
     def show(diagram: pyplot):
         diagram.show()
-
-# hist = Diagram.hist_demo()
-# popular_programming_languages = Diagram.most_popular_programming_lang(top=15)
-# free_time = Diagram.free_time()
-# diagram = free_time
-# Diagram.run(diagram)
-# Diagram.run(popular_programming_lang)
