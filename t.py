@@ -1,16 +1,15 @@
 # !pip install hvplot
-import ssl
-import statistics
-import numpy as np
-from matplotlib import pyplot
-from matplotlib import pyplot as plt
-
-ssl._create_default_https_context = ssl._create_stdlib_context
-plt.style.use("fivethirtyeight")
-from collections import Counter
-from itertools import chain
-
-import pandas as pd
+# import statistics
+# import ssl
+# import pandas as pd
+# import numpy as np
+# from collections import Counter
+# from itertools import chain
+# from matplotlib import pyplot as plt
+# from matplotlib import pyplot
+#
+# ssl._create_default_https_context = ssl._create_stdlib_context
+# plt.style.use("fivethirtyeight")
 
 
 class Diagram:
@@ -35,7 +34,6 @@ class Diagram:
                               xlabel='Programming Languages'.title(), ylabel="Number of People Who Use",
                               height=400,
                               width=600)
-
 
     @staticmethod
     def hist_demo(is_random_age=False):
